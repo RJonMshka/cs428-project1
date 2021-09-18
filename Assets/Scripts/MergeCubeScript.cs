@@ -13,8 +13,29 @@ public class MergeCubeScript : MonoBehaviour
     public GameObject Pokemon;
     private bool isNightSignActive = true;
     private string weatherAPIUrl = "https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=1d6c65e03049c8519e63f5519a02a606&units=imperial";
-    private string[] texts = {
-        "1"
+
+    // Classic magic 8 ball sayings
+    private string[] ballTexts = {
+        "It is Certain",
+        "It is decidedly so",
+        "Without a doubt",
+        "Yes definitely",
+        "You may rely on it",
+        "As I see it, yes.",
+        "Most likely",
+        "Outlook good",
+        "Yes",
+        "Signs point to yes",
+        "Reply hazy, try again",
+        "Ask again later",
+        "Better not tell you now",
+        "Cannot predict now",
+        "Concentrate and ask again",
+        "Don't count on it",
+        "My reply is no",
+        "My sources say no",
+        "Outlook not so good",
+        "Very doubtful"
     };
     private LocationInfo locationInfo;
     // Start is called before the first frame update
@@ -73,7 +94,7 @@ public class MergeCubeScript : MonoBehaviour
 
     string GetRandomExpression() {
         System.Random r = new System.Random();
-        int rInt = r.Next(0, texts.Length); //for ints
-        return texts[rInt];
+        int rInt = r.Next(0, ballTexts.Length); //for ints
+        return ballTexts[rInt];
     }
 }
