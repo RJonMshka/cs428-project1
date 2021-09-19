@@ -94,31 +94,13 @@ public class MergeCubeScript : MonoBehaviour
 
     // This method sets the value of xAngle and zAngle to values from the inspector in Unity
     void SetAnglesForRotationDetection() {
-        transformToInspector();
-        xAngle = Mathf.Abs(xAngle);
-        zAngle = Mathf.Abs(zAngle);
-    }
-
-    // This method converts euler angles to one inspector
-    void transformToInspector() {
-        if(transform.localEulerAngles.x > 180f & transform.localEulerAngles.z > 180f) {
-            xAngle = 180f - transform.localEulerAngles.x;
-            zAngle = 180f - transform.localEulerAngles.z;
-        } else if(transform.localEulerAngles.x > 180f & transform.localEulerAngles.z < 180f & transform.localEulerAngles.z > 0f ) {
-            xAngle = transform.localEulerAngles.x - 360f;
-            zAngle = transform.localEulerAngles.z;
-        } else if(transform.localEulerAngles.x < 180f & transform.localEulerAngles.x > 0f & transform.localEulerAngles.z > 180f & transform.localEulerAngles.z > 270f ) {
-            xAngle = transform.localEulerAngles.x;
-            zAngle = transform.localEulerAngles.z - 360f;
-        } else if(transform.localEulerAngles.x < 180f & transform.localEulerAngles.x > 0f & transform.localEulerAngles.z > 180f & transform.localEulerAngles.z < 270f) {
-            xAngle = 180f - transform.localEulerAngles.x;
-            zAngle = transform.localEulerAngles.z - 180f;
-        } else if(transform.localEulerAngles.x < 180f & transform.localEulerAngles.x > 0f & transform.localEulerAngles.z > 0f & transform.localEulerAngles.z < 180f ) {
-            xAngle = transform.localEulerAngles.x;
-            zAngle = transform.localEulerAngles.z;
-        } else {
-            xAngle = transform.localEulerAngles.x;
-            zAngle = transform.localEulerAngles.z;
+        xAngle = Clamp0360(transform.localEulerAngles.x);
+        zAngle = Clamp0360(transform.localEulerAngles.z);
+        if(xAngle > 180f) {
+            xAngle = 360f - xAngle;
+        }
+        if(zAngle > 180f) {
+            zAngle = 360f - zAngle;
         }
     }
 
@@ -198,5 +180,14 @@ public class MergeCubeScript : MonoBehaviour
         System.Random randomObject = new System.Random();
         int randomValue = randomObject.Next(0, ballTexts.Length - 1); //for ints
         return ballTexts[randomValue];
+    }
+
+    // This method converts local eulerAngles to match inspector angles
+    float Clamp0360(float eulerAngles) { 
+        float result = eulerAngles - Mathf.CeilToInt(eulerAngles / 360f) * 360f;
+        if (result < 0) {
+            result += 360f;
+        }
+        return result;
     }
 }
