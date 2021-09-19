@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="Merge.Bottom" size="0.100000 0.100000"/>
+        <ImageTarget name="Merge.Top" size="0.100000 0.100000"/>
+        <ImageTarget name="Merge.Left" size="0.100000 0.100000"/>
+        <ImageTarget name="Merge.Front" size="0.100000 0.100000"/>
+        <ImageTarget name="Merge.Back" size="0.100000 0.100000"/>
+        <ImageTarget name="Merge.Right" size="0.100000 0.100000"/>
+        <ImageTarget name="ClassCube.Bottom" size="0.100000 0.100000"/>
+        <ImageTarget name="ClassCube.Top" size="0.100000 0.100000"/>
+        <ImageTarget name="ClassCube.Left" size="0.100000 0.100000"/>
+        <ImageTarget name="ClassCube.Front" size="0.100000 0.100000"/>
+        <ImageTarget name="ClassCube.Back" size="0.100000 0.100000"/>
+        <ImageTarget name="ClassCube.Right" size="0.100000 0.100000"/>
+        <MultiTarget name="Merge">
+            <Part name="Merge.Left" translation="-0.05000000074505806 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Merge.Right" translation="0.05000000074505806 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Merge.Front" translation="0 0 0.05000000074505806" rotation="AD: 1 0 0 0"/>
+            <Part name="Merge.Back" translation="0 0 -0.05000000074505806" rotation="AD: 0 1 0 180"/>
+            <Part name="Merge.Top" translation="0 0.05000000074505806 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Merge.Bottom" translation="0 -0.05000000074505806 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="ClassCube">
+            <Part name="ClassCube.Left" translation="-0.05000000074505806 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="ClassCube.Right" translation="0.05000000074505806 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="ClassCube.Front" translation="0 0 0.05000000074505806" rotation="AD: 1 0 0 0"/>
+            <Part name="ClassCube.Back" translation="0 0 -0.05000000074505806" rotation="AD: 0 1 0 180"/>
+            <Part name="ClassCube.Top" translation="0 0.05000000074505806 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="ClassCube.Bottom" translation="0 -0.05000000074505806 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
